@@ -10,7 +10,8 @@ class App extends Component {
   constructor(props) {
     super(props);
     this.state = {
-    value: ''
+    value: '',
+    subjectTransform: ''
   };
 
     this.handleChange = this.handleChange.bind(this);
@@ -30,6 +31,7 @@ class App extends Component {
   }
 
   returnRandomSubject(e){
+    e.preventDefault();
     var rawData = data;
     var randSubject =  _.sample(rawData);
     console.log("random subject selected - ", randSubject);
