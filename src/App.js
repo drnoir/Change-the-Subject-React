@@ -1,5 +1,4 @@
 import React, { Component } from 'react';
-import logo from './logo.svg';
 import './App.css';
 import data from './data.json';
 import _ from 'lodash'
@@ -53,7 +52,7 @@ class App extends Component {
         Send and share random subjects with your friends
         </p>
         <form>
-          <input type="submit" value="PUSH THE BUTTON" onClick={this.returnRandomSubject} />
+          <button onClick={this.returnRandomSubject}><h2>CHANGE THE SUBJECT</h2></button>
           <h2>Your Subject is</h2>
           <h1 className="App-subject">{this.state.subjectTransform}</h1>
         </form>
