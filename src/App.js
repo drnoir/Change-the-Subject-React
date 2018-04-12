@@ -6,15 +6,16 @@ import _ from 'lodash'
  
 class App extends Component {
 
+
   constructor(props) {
     super(props);
     this.state = {
-    value: '',
-    randomSubject: 'Default'
+    value: ''
   };
 
     this.handleChange = this.handleChange.bind(this);
     this.handleSubmit = this.handleSubmit.bind(this);
+    this.returnRandomSubject = this.returnRandomSubject.bind(this);
   }
 
   handleChange(event) {
@@ -28,15 +29,17 @@ class App extends Component {
     console.log("Email Form Updated");
   }
 
-  returnRandomSubject(){
+  returnRandomSubject(e){
     var rawData = data;
-    var randSubject =  _.sample(rawData)
-    console.log("function random subject ran", randSubject);
-  //  this.setState({randSubject: randomSubject});
+    var randSubject =  _.sample(rawData);
+    console.log("random subject selected - ", randSubject);
+   
+     this.setState(
+      {subjectTransform : randSubject}
+     );
   };
 
   render() {
-
     return (
       <div className="App">
         <header className="App-header">
@@ -49,7 +52,7 @@ class App extends Component {
         <form>
           <input type="submit" value="Randomise Subject" onClick={this.returnRandomSubject} />
           <h2>Subject Selected:</h2>
-          <h3>{randomSubject}</h3>
+          <h1>{this.state.subjectTransform}</h1>
         </form>
   <div>
        <form>
