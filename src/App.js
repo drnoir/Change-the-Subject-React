@@ -3,6 +3,7 @@ import logo from './logo.svg';
 import './App.css';
 import data from './data.json';
 import _ from 'lodash'
+import '../node_modules/font-awesome/css/font-awesome.min.css'; 
  
 class App extends Component {
 
@@ -45,25 +46,26 @@ class App extends Component {
     return (
       <div className="App">
         <header className="App-header">
-          <img src={logo} className="App-logo" alt="logo" />
+        <i className="fa fa-meh-o fa-5x App-logo" aria-hidden="true"></i>
           <h1 className="App-title">Change the Subject</h1>
         </header>
         <p className="App-intro">
-          An app to send and share random subjects with your friends
+        Send and share random subjects with your friends
         </p>
         <form>
           <input type="submit" value="PUSH THE BUTTON" onClick={this.returnRandomSubject} />
-          <h2>Subject Selected:</h2>
-          <h1>{this.state.subjectTransform}</h1>
+          <h2>Your Subject is</h2>
+          <h1 className="App-subject">{this.state.subjectTransform}</h1>
         </form>
   <div>
+  <h2>Share Subject</h2>
+  <i className="fa fa-facebook-official fa-4x" aria-hidden="true"></i>
+          <i className="fa fa-twitter-square fa-4x" aria-hidden="true"></i>
+          <i className="fa fa-vk fa-4x" aria-hidden="true"></i>
+          <i className="fa fa-telegram fa-4x" aria-hidden="true"></i>
        <form>
-          <label>
-          <h2>
-           Share Subject
-          </h2>
+          <label>Share via Email</label>
             <input type="text" name="share" value={this.state.value} onChange={this.handleChange} />
-          </label>
           <input type="submit" onClick={this.handleSubmit} value="Send" />
         </form>
     </div>
@@ -72,11 +74,11 @@ class App extends Component {
        <form>
           <label>
           <h2>
-           Add your own Subject
+           Submit your own subject for our list
           </h2>
             <input type="text" name="addSubject" value={this.state.addSubject} />
           </label>
-          <input type="submit" value="Add" />
+          <input type="submit" value="Submit" />
         </form>
     </div>
       </div>
