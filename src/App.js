@@ -4,25 +4,14 @@ import './App.css';
 import data from './data.json';
 import _ from 'lodash'
  
-function randomSubject(){
-  const dataArr = [data];
-  var randomSubjectValue =  _.sample(dataArr)
-  // const rand = dataArr[Math.floor(Math.random() * dataArr.length)];
-  console.log(randomSubjectValue);
-  // this.state = {rand : rand};
-}
-
-// function EmailAdd(){
-//   var emailAddress;
-//   this.state = {emailAddress : emailAddress }
-// }
-
 class App extends Component {
-  
+
   constructor(props) {
     super(props);
-    this.state = {value: ''};
-    this.setState =({randomSubjectValue : 'test'});
+    this.state = {
+    value: '',
+    randomSubject: 'Default'
+  };
 
     this.handleChange = this.handleChange.bind(this);
     this.handleSubmit = this.handleSubmit.bind(this);
@@ -30,12 +19,21 @@ class App extends Component {
 
   handleChange(event) {
     this.setState({value: event.target.value});
+    console.log("Email change Clicked");
   }
 
   handleSubmit(event) {
     alert('A name was submitted: ' + this.state.value);
     event.preventDefault();
+    console.log("Email Form Updated");
   }
+
+  returnRandomSubject(){
+    var rawData = data;
+    var randSubject =  _.sample(rawData)
+    console.log("function random subject ran", randSubject);
+  //  this.setState({randSubject: randomSubject});
+  };
 
   render() {
 
@@ -49,8 +47,9 @@ class App extends Component {
           An app to send and share random subjects with your friends
         </p>
         <form>
-          <input type="submit" value="Randomise Subject" onClick={randomSubject} />
-          <h2>Subject Selected: {this.state.randomSubjectValue}</h2>
+          <input type="submit" value="Randomise Subject" onClick={this.returnRandomSubject} />
+          <h2>Subject Selected:</h2>
+          <h3>{randomSubject}</h3>
         </form>
   <div>
        <form>
@@ -60,7 +59,7 @@ class App extends Component {
           </h2>
             <input type="text" name="share" value={this.state.value} onChange={this.handleChange} />
           </label>
-          <input type="submit" value="Send" />
+          <input type="submit" onClick={this.handleSubmit} value="Send" />
         </form>
     </div>
       </div>
