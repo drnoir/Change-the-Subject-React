@@ -52,7 +52,7 @@ class App extends Component {
           An app to send and share random subjects with your friends
         </p>
         <form>
-          <input type="submit" value="Randomise Subject" onClick={this.returnRandomSubject} />
+          <input type="submit" value="PUSH THE BUTTON" onClick={this.returnRandomSubject} />
           <h2>Subject Selected:</h2>
           <h1>{this.state.subjectTransform}</h1>
         </form>
@@ -60,11 +60,23 @@ class App extends Component {
        <form>
           <label>
           <h2>
-           Send and Share Subject
+           Share Subject
           </h2>
             <input type="text" name="share" value={this.state.value} onChange={this.handleChange} />
           </label>
           <input type="submit" onClick={this.handleSubmit} value="Send" />
+        </form>
+    </div>
+
+     <div>
+       <form>
+          <label>
+          <h2>
+           Add your own Subject
+          </h2>
+            <input type="text" name="addSubject" value={this.state.addSubject} />
+          </label>
+          <input type="submit" value="Add" />
         </form>
     </div>
       </div>
