@@ -3,9 +3,20 @@ import './App.css';
 import data from './data.json';
 import _ from 'lodash'
 import '../node_modules/font-awesome/css/font-awesome.min.css'; 
- 
-class App extends Component {
+import {
+  FacebookShareButton,
+  TwitterShareButton,
+  TelegramShareButton,
+  VKShareButton,
 
+  
+  FacebookIcon,
+  TwitterIcon,
+  VKIcon,
+  TelegramIcon,
+} from 'react-share';
+
+class App extends Component {
 
   constructor(props) {
     super(props);
@@ -41,7 +52,9 @@ class App extends Component {
      );
   };
 
+//render content
   render() {
+
     return (
       <div className="App">
         <header className="App-header">
@@ -57,16 +70,38 @@ class App extends Component {
           <h1 className="App-subject">{this.state.subjectTransform}</h1>
         </form>
   <div>
-  <h2>Share Subject</h2>
-  <i className="fa fa-facebook-official fa-4x" aria-hidden="true"></i>
-          <i className="fa fa-twitter-square fa-4x" aria-hidden="true"></i>
-          <i className="fa fa-vk fa-4x" aria-hidden="true"></i>
-          <i className="fa fa-telegram fa-4x" aria-hidden="true"></i>
-       <form>
+  <h2>Share It!</h2>
+  <div className="App-header">
+  <FacebookShareButton
+            url="www.facebook.com"
+            quote={this.state.subjectTransform}
+            className="Demo__some-network__share-button alignLeft">
+            <FacebookIcon
+              size={120}
+              round />
+  </FacebookShareButton>
+
+          <TelegramShareButton
+            url="www.telegram.prg"
+            title={this.state.subjectTransform}
+            className="Demo__some-network__share-button alignLeft">
+            <TelegramIcon size={120} round />
+          </TelegramShareButton>
+
+           <TwitterShareButton
+            url="www.twitter.org"
+            title={this.state.subjectTransform}
+            className="Demo__some-network__share-button alignLeft">
+            <TwitterIcon
+              size={120}
+              round />
+          </TwitterShareButton>
+   </div>     
+       {/* <form>
           <label>Share via Email</label>
             <input type="text" name="share" value={this.state.value} onChange={this.handleChange} />
           <input type="submit" onClick={this.handleSubmit} value="Send" />
-        </form>
+        </form> */}
     </div>
 
      <div>
