@@ -73,7 +73,7 @@ class App extends Component {
   <h2>Share It!</h2>
   <div className="App-header">
   <FacebookShareButton
-            url="www.facebook.com"
+            url="changethesubject.com"
             quote={this.state.subjectTransform}
             className="Demo__some-network__share-button alignLeft">
             <FacebookIcon
@@ -82,20 +82,32 @@ class App extends Component {
   </FacebookShareButton>
 
           <TelegramShareButton
-            url="www.telegram.prg"
+            url="changethesubject.com"
             title={this.state.subjectTransform}
             className="Demo__some-network__share-button alignLeft">
             <TelegramIcon size={120} round />
           </TelegramShareButton>
 
            <TwitterShareButton
-            url="www.twitter.org"
+            url="changethesubject.com"
             title={this.state.subjectTransform}
             className="Demo__some-network__share-button alignLeft">
             <TwitterIcon
               size={120}
               round />
           </TwitterShareButton>
+
+           <VKShareButton
+            url="changethesubject.com"
+            title="Change the Subject"
+            description={this.state.subjectTransform}
+            windowWidth={660}
+            windowHeight={460}
+            className="Demo__some-network__share-button alignLeft">
+            <VKIcon
+              size={120}
+              round />
+          </VKShareButton>
    </div>     
        {/* <form>
           <label>Share via Email</label>
@@ -108,7 +120,7 @@ class App extends Component {
        <form>
           <label>
           <h2>
-           Submit your own subject for our list
+           Submit your own subject to our list
           </h2>
             <input type="text" name="addSubject" value={this.state.addSubject} />
           </label>
