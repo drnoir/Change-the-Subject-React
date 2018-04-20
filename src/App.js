@@ -1,19 +1,22 @@
 import React, { Component } from 'react';
 import './App.css';
 import data from './data.json';
-import _ from 'lodash'
+import _ from 'lodash';
+import MetaTags from 'react-meta-tags';
+import icon from'./icon.jpg';
 import '../node_modules/font-awesome/css/font-awesome.min.css'; 
 import {
   FacebookShareButton,
   TwitterShareButton,
   TelegramShareButton,
   VKShareButton,
+  EmailShareButton,
 
-  
   FacebookIcon,
   TwitterIcon,
   VKIcon,
   TelegramIcon,
+  EmailIcon
 } from 'react-share';
 
 class App extends Component {
@@ -56,7 +59,16 @@ class App extends Component {
   render() {
 
     return (
+  
       <div className="App">
+
+       <MetaTags>
+      <title>Change the Subject</title>
+      <meta name="description" content="A app to change a subject, randomly" />
+      <meta property="og:image" content={icon} />
+      <meta property="og:title" content="Facebook Open Graph META Tags"/>
+      <meta property="og:site_name" content="Change the Subject"/>
+      </MetaTags>
         <header className="App-header">
         <i className="fa fa-meh-o fa-5x App-logo" aria-hidden="true"></i>
           <h1 className="App-title">Change the Subject</h1>
@@ -66,11 +78,11 @@ class App extends Component {
         </p>
         <form>
           <button onClick={this.returnRandomSubject}><h2>CHANGE THE SUBJECT</h2></button>
-          <h2>Your Subject is</h2>
+          <h1>Your Subject is</h1>
           <h1 className="App-subject">{this.state.subjectTransform}</h1>
         </form>
   <div>
-  <h2>Share It!</h2>
+  <h1>Share It!</h1>
   <div className="App-header">
   <FacebookShareButton
             url="changethesubject.com"
@@ -97,7 +109,7 @@ class App extends Component {
               round />
           </TwitterShareButton>
 
-           <VKShareButton
+           {/* <VKShareButton
             url="changethesubject.com"
             title="Change the Subject"
             description={this.state.subjectTransform}
@@ -108,6 +120,16 @@ class App extends Component {
               size={120}
               round />
           </VKShareButton>
+
+           <EmailShareButton
+            url="www.changethesubject.com"
+            subject={this.state.subjectTransform}
+            body="test"
+            className="Demo__some-network__share-button alignLeft">
+            <EmailIcon
+              size={120}
+              round />
+          </EmailShareButton> */}
    </div>     
        {/* <form>
           <label>Share via Email</label>
@@ -117,7 +139,7 @@ class App extends Component {
     </div>
 
      <div>
-       <form>
+       {/* <form>
           <label>
           <h2>
            Submit your own subject to our list
@@ -125,7 +147,7 @@ class App extends Component {
             <input type="text" name="addSubject" value={this.state.addSubject} />
           </label>
           <input type="submit" value="Submit" />
-        </form>
+        </form> */}
     </div>
       </div>
     );
