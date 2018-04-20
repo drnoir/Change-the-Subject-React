@@ -5,6 +5,9 @@ import _ from 'lodash';
 import MetaTags from 'react-meta-tags';
 import icon from'./icon.jpg';
 import '../node_modules/font-awesome/css/font-awesome.min.css'; 
+import ReactDOM from 'react-dom';
+import GoogleAds from 'react-google-ads';
+
 import {
   FacebookShareButton,
   TwitterShareButton,
@@ -18,6 +21,7 @@ import {
   TelegramIcon,
   EmailIcon
 } from 'react-share';
+
 
 class App extends Component {
 
@@ -55,6 +59,7 @@ class App extends Component {
      );
   };
 
+ 
 //render content
   render() {
 
@@ -148,6 +153,12 @@ class App extends Component {
           </label>
           <input type="submit" value="Submit" />
         </form> */}
+    <GoogleAds
+    client="0789209255261075"
+    slot="3216327805"
+    style={{ display: 'inline-block', width: '100%', }}
+  />
+
     </div>
       </div>
     );
